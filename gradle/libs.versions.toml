@@ -8,6 +8,7 @@ coreKtx = "1.13.1"
 espressoCore = "3.6.1"
 junit = "4.13.2"
 kotlin = "2.0.0"
+ktlintGradle = "12.1.1"
 lifecycleRuntimeKtx = "2.8.4"
 minSdk = "26"
 targetSdk = "34"
@@ -32,3 +33,4 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ktlint-gradle = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlintGradle" }
