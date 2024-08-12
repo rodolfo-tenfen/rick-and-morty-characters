@@ -7,3 +7,11 @@ plugins {
 
     alias(libs.plugins.ktlint.gradle)
 }
+
+ktlint {
+    filter {
+        exclude { element ->
+            element.file.path.contains("generated")
+        }
+    }
+}
