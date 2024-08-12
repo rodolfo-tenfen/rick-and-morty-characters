@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.kotlin.android)
-
     alias(libs.plugins.android.application)
 
     alias(libs.plugins.compose)
 
     alias(libs.plugins.ktlint.gradle)
+    alias(libs.plugins.kotlinter)
 }
 
 android {
@@ -36,9 +36,16 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlin {
+        jvmToolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
     }
 
     buildFeatures {
@@ -53,6 +60,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":data:character"))
+    implementation(project(":presentation:home"))
+    implementation(project(":presentation:theme"))
+    // implementation(project(":presentation:characterdetails"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -62,6 +73,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.androidx.navigation.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
